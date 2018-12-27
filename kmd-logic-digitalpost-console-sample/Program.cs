@@ -79,7 +79,7 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample
                 ContentReferenceId = uploadAttachmentResponse.ReferenceId
             });
 
-            Log.Information("Document was send to {@ReferenceId}", uploadAttachmentResponse.ReferenceId);
+            Log.Information("Document was send with eboks messageId {@MessageId}", result.MessageId);
         }
 
         
