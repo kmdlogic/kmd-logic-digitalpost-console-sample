@@ -46,7 +46,10 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample
 
         private static async Task Run(AppConfiguration config)
         {
-            ValidateConfiguration(config);
+            if (ValidateConfiguration(config) != ConfigValidity.Valid)
+            {
+                return;
+            }
 
             Log.Information("Logic environment is {LogicEnvironmentName}", config.LogicEnvironmentName);
             var logicEnvironment = config.LogicEnvironments.FirstOrDefault(e => e.Name == config.LogicEnvironmentName);
@@ -66,7 +69,7 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample
                 uploadAttachmentResponse = await client.UploadAttachmentAsync(subscriptionId, stream);
             }
 
-            Log.Information("Uploaded attachment and got referenceId {@ReferenceId}", uploadAttachmentResponse.ReferenceId);
+            Log.Information("Attachment was uploaded and got referenceId {ReferenceId}", uploadAttachmentResponse.ReferenceId);
             
             var result = await client.SendSingleDocumentAsync(subscriptionId, new SendDocumentRequest
             {
@@ -79,12 +82,13 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample
                 ContentReferenceId = uploadAttachmentResponse.ReferenceId
             });
 
-            Log.Information("Document was send with eboks messageId {@MessageId}", result.MessageId);
+            Log.Information("Document was sent and got eboks messageId {MessageId}", result.MessageId);
         }
 
         
+        enum ConfigValidity { Valid, Invalid, }
 
-        private static void ValidateConfiguration(AppConfiguration config)
+        private static ConfigValidity ValidateConfiguration(AppConfiguration config)
         {
             if (config.LogicAccount == null
                 || string.IsNullOrWhiteSpace(config.LogicAccount?.ClientId)
@@ -93,7 +97,7 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample
             {
                 Log.Error("Please add your LogicAccount configuration to `appsettings.json`. You currently have {@LogicAccount}",
                     config.LogicAccount);
-                return;
+                return ConfigValidity.Invalid;
             }
 
             if (config.DigitalPost == null
@@ -102,8 +106,10 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample
             {
                 Log.Error("Please add your DigitalPost configuration to `appsettings.json`. You currently have {@DigitalPost}",
                     config.DigitalPost);
-                return;
+                return ConfigValidity.Invalid;
             }
+
+            return ConfigValidity.Valid;
         }        
     }
 }
