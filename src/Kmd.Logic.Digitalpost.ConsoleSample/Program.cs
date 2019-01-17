@@ -4,11 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Rest;
 using Serilog;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace Kmd.Logic.Digitalpost.ConsoleSample
