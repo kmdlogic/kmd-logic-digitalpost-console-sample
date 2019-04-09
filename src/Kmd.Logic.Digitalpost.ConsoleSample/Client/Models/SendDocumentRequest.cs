@@ -39,7 +39,7 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample.Client.Models
         /// <param name="metadata">Message metadata</param>
         /// <param name="attachments">Array of attachments - max 10 (9 if
         /// metadata exist)</param>
-        public SendDocumentRequest(System.Guid? contentReferenceId = default(System.Guid?), string contentExtension = default(string), int? systemId = default(int?), string identifierType = default(string), string identifier = default(string), int? materialId = default(int?), string title = default(string), string metadata = default(string), IList<MessageAttachment> attachments = default(IList<MessageAttachment>))
+        public SendDocumentRequest(System.Guid? contentReferenceId = default(System.Guid?), string contentExtension = default(string), int? systemId = default(int?), string identifierType = default(string), string identifier = default(string), string materialId = default(string), string title = default(string), string metadata = default(string), IList<MessageAttachment> attachments = default(IList<MessageAttachment>))
         {
             ContentReferenceId = contentReferenceId;
             ContentExtension = contentExtension;
@@ -94,7 +94,7 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample.Client.Models
         /// Gets or sets id of the material defined in eBoks
         /// </summary>
         [JsonProperty(PropertyName = "materialId")]
-        public int? MaterialId { get; set; }
+        public string MaterialId { get; set; }
 
         /// <summary>
         /// Gets or sets title of the message

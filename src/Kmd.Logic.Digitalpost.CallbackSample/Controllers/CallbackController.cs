@@ -19,6 +19,7 @@ namespace Kmd.Logic.Digitalpost.CallbackSample.Controllers
         }
 
         [HttpGet]
+        [HttpHead]
         public IActionResult Get()
         {
             var url = $"{Request.Scheme}://{Request.Host.Value}{Request.Path.Value}";

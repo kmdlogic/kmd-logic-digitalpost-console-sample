@@ -28,6 +28,6 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample
     class LogicDigitalPostConfiguration
     {
         public int? SystemId { get; set; }
-        public int? MaterialId { get; set; }        
+        public string MaterialId { get; set; }        
     }
 }

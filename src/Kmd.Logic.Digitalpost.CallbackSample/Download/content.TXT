@@ -1,0 +1,3 @@
+Test e-mail fra Digital Post/NemSMS.
+
+Der er oprettet en postkasse og et eller flere emner, der skal anvendes i Digital Post/NemSMS. Denne test e-mail er dannet og afsendt for at sikre, at meddelelser sendt til postkassen kan afhentes af myndigheden.

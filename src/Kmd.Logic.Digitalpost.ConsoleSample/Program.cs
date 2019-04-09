@@ -67,7 +67,7 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample
             }
 
             Log.Information("Attachment was uploaded and got referenceId {ReferenceId}", uploadAttachmentResponse.ReferenceId);
-            
+
             var result = await client.SendSingleDocumentAsync(subscriptionId, new SendDocumentRequest
             {
                 MaterialId = config.DigitalPost.MaterialId,
@@ -76,7 +76,7 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample
                 Identifier = "1103500113",
                 Title = "Message from Logic Console Sample",
                 ContentExtension = "pdf",
-                ContentReferenceId = uploadAttachmentResponse.ReferenceId
+                ContentReferenceId = uploadAttachmentResponse.ReferenceId                
             });
 
             Log.Information("Document was sent and got eboks messageId {MessageId}", result.MessageId);
