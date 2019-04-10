@@ -27,7 +27,7 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample
 
     class LogicDigitalPostConfiguration
     {
-        public int? SystemId { get; set; }
+        public Guid? ConfigurationId { get; set; }
         public string MaterialId { get; set; }        
     }
 }

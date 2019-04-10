@@ -7,6 +7,7 @@
 namespace Kmd.Logic.Digitalpost.ConsoleSample.Client.Models
 {
     using Newtonsoft.Json;
+    using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
@@ -39,11 +40,11 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample.Client.Models
         /// <param name="metadata">Message metadata</param>
         /// <param name="attachments">Array of attachments - max 10 (9 if
         /// metadata exist)</param>
-        public SendDocumentRequest(System.Guid? contentReferenceId = default(System.Guid?), string contentExtension = default(string), int? systemId = default(int?), string identifierType = default(string), string identifier = default(string), string materialId = default(string), string title = default(string), string metadata = default(string), IList<MessageAttachment> attachments = default(IList<MessageAttachment>))
+        public SendDocumentRequest(System.Guid? contentReferenceId = default(System.Guid?), string contentExtension = default(string), Guid? configurationId = default(System.Guid?), string identifierType = default(string), string identifier = default(string), string materialId = default(string), string title = default(string), string metadata = default(string), IList<MessageAttachment> attachments = default(IList<MessageAttachment>))
         {
             ContentReferenceId = contentReferenceId;
             ContentExtension = contentExtension;
-            SystemId = systemId;
+            ConfigurationId = configurationId;
             IdentifierType = identifierType;
             Identifier = identifier;
             MaterialId = materialId;
@@ -74,8 +75,8 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample.Client.Models
         /// <summary>
         /// Gets or sets eboks system identifier
         /// </summary>
-        [JsonProperty(PropertyName = "systemId")]
-        public int? SystemId { get; set; }
+        [JsonProperty(PropertyName = "configurationId")]
+        public Guid? ConfigurationId { get; set; }
 
         /// <summary>
         /// Gets or sets type of identifier - CPR for a citizen, CVR for a

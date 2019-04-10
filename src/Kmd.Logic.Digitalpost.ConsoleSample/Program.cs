@@ -71,7 +71,7 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample
             var result = await client.SendSingleDocumentAsync(subscriptionId, new SendDocumentRequest
             {
                 MaterialId = config.DigitalPost.MaterialId,
-                SystemId = config.DigitalPost.SystemId,
+                ConfigurationId = config.DigitalPost.ConfigurationId,
                 IdentifierType = "cpr",
                 Identifier = "1103500113",
                 Title = "Message from Logic Console Sample",
@@ -98,8 +98,7 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample
             }
 
             if (config.DigitalPost == null
-                || config.DigitalPost?.MaterialId == null
-                || config.DigitalPost?.SystemId == null)
+                || config.DigitalPost?.MaterialId == null)
             {
                 Log.Error("Please add your DigitalPost configuration to `appsettings.json`. You currently have {@DigitalPost}",
                     config.DigitalPost);
