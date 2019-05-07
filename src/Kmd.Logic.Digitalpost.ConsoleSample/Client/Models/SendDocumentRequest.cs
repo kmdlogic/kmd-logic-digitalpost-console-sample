@@ -7,7 +7,6 @@
 namespace Kmd.Logic.Digitalpost.ConsoleSample.Client.Models
 {
     using Newtonsoft.Json;
-    using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
@@ -29,18 +28,23 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample.Client.Models
         /// be put as message content</param>
         /// <param name="contentExtension">Extension of the content file (pdf,
         /// txt, doc, etc)</param>
-        /// <param name="systemId">Eboks system identifier</param>
+        /// <param name="configurationId">Id of provider configuration to
+        /// use</param>
         /// <param name="identifierType">Type of identifier - CPR for a
         /// citizen, CVR for a company. Possible values include: 'cpr',
         /// 'cvr'</param>
         /// <param name="identifier">Identifier value (CPR/CVR)</param>
-        /// <param name="materialId">Id of the material defined in
-        /// eBoks</param>
+        /// <param name="materialId">Id of the material defined in eBoks /
+        /// Document Type defined by Doc2Mail</param>
+        /// <param name="pNumber">The PNumber (dk. "P-nummer") is the
+        /// Production Unit Identifier agreed between the sender and receiver
+        /// to distribute a message to a particular department, production
+        /// site, etc. within an organisation (CVR).</param>
         /// <param name="title">Title of the message</param>
         /// <param name="metadata">Message metadata</param>
         /// <param name="attachments">Array of attachments - max 10 (9 if
         /// metadata exist)</param>
-        public SendDocumentRequest(System.Guid? contentReferenceId = default(System.Guid?), string contentExtension = default(string), Guid? configurationId = default(System.Guid?), string identifierType = default(string), string identifier = default(string), string materialId = default(string), string title = default(string), string metadata = default(string), IList<MessageAttachment> attachments = default(IList<MessageAttachment>))
+        public SendDocumentRequest(System.Guid? contentReferenceId = default(System.Guid?), string contentExtension = default(string), System.Guid? configurationId = default(System.Guid?), string identifierType = default(string), string identifier = default(string), string materialId = default(string), string pNumber = default(string), string title = default(string), string metadata = default(string), IList<MessageAttachment> attachments = default(IList<MessageAttachment>))
         {
             ContentReferenceId = contentReferenceId;
             ContentExtension = contentExtension;
@@ -48,6 +52,7 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample.Client.Models
             IdentifierType = identifierType;
             Identifier = identifier;
             MaterialId = materialId;
+            PNumber = pNumber;
             Title = title;
             Metadata = metadata;
             Attachments = attachments;
@@ -73,10 +78,10 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample.Client.Models
         public string ContentExtension { get; set; }
 
         /// <summary>
-        /// Gets or sets eboks system identifier
+        /// Gets or sets id of provider configuration to use
         /// </summary>
         [JsonProperty(PropertyName = "configurationId")]
-        public Guid? ConfigurationId { get; set; }
+        public System.Guid? ConfigurationId { get; set; }
 
         /// <summary>
         /// Gets or sets type of identifier - CPR for a citizen, CVR for a
@@ -92,10 +97,20 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample.Client.Models
         public string Identifier { get; set; }
 
         /// <summary>
-        /// Gets or sets id of the material defined in eBoks
+        /// Gets or sets id of the material defined in eBoks / Document Type
+        /// defined by Doc2Mail
         /// </summary>
         [JsonProperty(PropertyName = "materialId")]
         public string MaterialId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the PNumber (dk. "P-nummer") is the Production Unit
+        /// Identifier agreed between the sender and receiver
+        /// to distribute a message to a particular department, production
+        /// site, etc. within an organisation (CVR).
+        /// </summary>
+        [JsonProperty(PropertyName = "pNumber")]
+        public string PNumber { get; set; }
 
         /// <summary>
         /// Gets or sets title of the message

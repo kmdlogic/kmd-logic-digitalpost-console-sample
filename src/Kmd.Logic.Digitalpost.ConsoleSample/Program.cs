@@ -1,4 +1,4 @@
-﻿using Kmd.Logic.Digitalpost.ConsoleSample.Client;
+using Kmd.Logic.Digitalpost.ConsoleSample.Client;
 using Kmd.Logic.Digitalpost.ConsoleSample.Client.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Rest;
@@ -68,7 +68,7 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample
 
             Log.Information("Attachment was uploaded and got referenceId {ReferenceId}", uploadAttachmentResponse.ReferenceId);
 
-            var result = await client.SendSingleDocumentAsync(subscriptionId, new SendDocumentRequest
+            var result = await client.SendDocumentAsync(subscriptionId, new SendDocumentRequest
             {
                 MaterialId = config.DigitalPost.MaterialId,
                 ConfigurationId = config.DigitalPost.ConfigurationId,

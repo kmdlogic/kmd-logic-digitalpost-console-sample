@@ -35,6 +35,11 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample.Client
         JsonSerializerSettings DeserializationSettings { get; }
 
         /// <summary>
+        /// Client API version.
+        /// </summary>
+        string ApiVersion { get; }
+
+        /// <summary>
         /// Subscription credentials which uniquely identify client
         /// subscription.
         /// </summary>
@@ -56,7 +61,7 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<SendMessageResponse>> SendSingleMessageWithHttpMessagesAsync(System.Guid subscriptionId, SendMessageRequest request = default(SendMessageRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SendMessageResponse>> SendMessageWithHttpMessagesAsync(System.Guid subscriptionId, SendMessageRequest request = default(SendMessageRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Sends a single document to a citizen/company.
@@ -73,7 +78,7 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<SendMessageResponse>> SendSingleDocumentWithHttpMessagesAsync(System.Guid subscriptionId, SendDocumentRequest request = default(SendDocumentRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SendMessageResponse>> SendDocumentWithHttpMessagesAsync(System.Guid subscriptionId, SendDocumentRequest request = default(SendDocumentRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Uploads a single file that could be add as an attachment to the
@@ -92,6 +97,154 @@ namespace Kmd.Logic.Digitalpost.ConsoleSample.Client
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<UploadAttachmentResponse>> UploadAttachmentWithHttpMessagesAsync(System.Guid subscriptionId, Stream attachment, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieves digital post configuration provider assigned to the logic
+        /// subscription
+        /// </summary>
+        /// <param name='subscriptionId'>
+        /// Id of LoGIC subscription
+        /// </param>
+        /// <param name='configurationId'>
+        /// Id of Digital Post configuration provider
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<DigitalPostProviderConfigurationModel>> GetDigitalPostConfigurationWithHttpMessagesAsync(System.Guid subscriptionId, System.Guid configurationId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Retrieves digital post configuration providers assigned to the
+        /// logic subscription
+        /// </summary>
+        /// <param name='subscriptionId'>
+        /// Id of LoGIC subscription
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<IList<DigitalPostProviderConfigurationModel>>> GetAllDigitalPostConfigurationsWithHttpMessagesAsync(System.Guid subscriptionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Updates existing Doc2Mail configuration and upload certificate
+        /// files.
+        /// </summary>
+        /// <param name='subscriptionId'>
+        /// Id of LoGIC subscription
+        /// </param>
+        /// <param name='id'>
+        /// </param>
+        /// <param name='systemId'>
+        /// </param>
+        /// <param name='name'>
+        /// </param>
+        /// <param name='environment'>
+        /// Possible values include: 'production', 'test'
+        /// </param>
+        /// <param name='callbackUrl'>
+        /// </param>
+        /// <param name='certificate'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<DigitalPostProviderConfiguration>> UpdateDoc2MailConfigurationWithHttpMessagesAsync(System.Guid subscriptionId, string id = default(string), int? systemId = default(int?), string name = default(string), string environment = default(string), string callbackUrl = default(string), Stream certificate = default(Stream), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Adds Doc2Mail configuration and upload certificate files.
+        /// </summary>
+        /// <param name='subscriptionId'>
+        /// Id of LoGIC subscription
+        /// </param>
+        /// <param name='id'>
+        /// </param>
+        /// <param name='systemId'>
+        /// </param>
+        /// <param name='name'>
+        /// </param>
+        /// <param name='environment'>
+        /// Possible values include: 'production', 'test'
+        /// </param>
+        /// <param name='callbackUrl'>
+        /// </param>
+        /// <param name='certificate'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<DigitalPostProviderConfiguration>> CreateDoc2MailConfigurationWithHttpMessagesAsync(System.Guid subscriptionId, string id = default(string), int? systemId = default(int?), string name = default(string), string environment = default(string), string callbackUrl = default(string), Stream certificate = default(Stream), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Updates existing eboks configuration and upload certificate file to
+        /// the Azure Key Vault
+        /// </summary>
+        /// <param name='subscriptionId'>
+        /// Id of LoGIC subscription
+        /// </param>
+        /// <param name='id'>
+        /// </param>
+        /// <param name='systemId'>
+        /// </param>
+        /// <param name='environment'>
+        /// Possible values include: 'production', 'test'
+        /// </param>
+        /// <param name='callbackUrl'>
+        /// </param>
+        /// <param name='name'>
+        /// </param>
+        /// <param name='certificate'>
+        /// </param>
+        /// <param name='certificatePassword'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<DigitalPostProviderConfiguration>> UpdateEboksConfigurationWithHttpMessagesAsync(System.Guid subscriptionId, string id = default(string), int? systemId = default(int?), string environment = default(string), string callbackUrl = default(string), string name = default(string), Stream certificate = default(Stream), string certificatePassword = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Adds existing eboks configuration and upload certificate file to
+        /// the Azure Key Vault
+        /// </summary>
+        /// <param name='subscriptionId'>
+        /// Id of LoGIC subscription
+        /// </param>
+        /// <param name='id'>
+        /// </param>
+        /// <param name='systemId'>
+        /// </param>
+        /// <param name='environment'>
+        /// Possible values include: 'production', 'test'
+        /// </param>
+        /// <param name='callbackUrl'>
+        /// </param>
+        /// <param name='name'>
+        /// </param>
+        /// <param name='certificate'>
+        /// </param>
+        /// <param name='certificatePassword'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<DigitalPostProviderConfiguration>> CreateEboksConfigurationWithHttpMessagesAsync(System.Guid subscriptionId, string id = default(string), int? systemId = default(int?), string environment = default(string), string callbackUrl = default(string), string name = default(string), Stream certificate = default(Stream), string certificatePassword = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }
