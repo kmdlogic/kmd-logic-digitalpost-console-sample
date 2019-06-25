@@ -18,10 +18,6 @@ namespace Kmd.Logic.Digitalpost.CallbackSample.Models
         public string Value { get; set; }
     }
 
-    public class MetadataContainer
-    {
-        public List<Metadata> List { get; set; }
-    }
 
     public class MailboxMetadata
     {
@@ -35,7 +31,7 @@ namespace Kmd.Logic.Digitalpost.CallbackSample.Models
         /// </summary>
         public string SubjectIdentifier { get; set; }
 
-        public MetadataContainer Metadata { get; set; }
+        public List<Metadata> Metadata { get; set; }
     }
 
     /// <summary>
@@ -86,11 +82,6 @@ namespace Kmd.Logic.Digitalpost.CallbackSample.Models
         /// The size of the file in kilobytes before Base64 encoding.
         /// </summary>
         public int FileSize { get; set; }
-    }
-
-    public class AttachmentContainer
-    {
-        public List<Attachment> List { get; set; }
     }
 
     public class CallbackModel
@@ -169,7 +160,7 @@ namespace Kmd.Logic.Digitalpost.CallbackSample.Models
         /// <summary>
         /// List of attachments
         /// </summary>
-        public AttachmentContainer Attachments { get; set; }
+        public List<Attachment> Attachments { get; set; }
 
         /// <summary>
         /// Specifies whether the sending authority allows this message to be responded to.

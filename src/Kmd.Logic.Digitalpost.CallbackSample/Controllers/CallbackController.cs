@@ -32,7 +32,7 @@ namespace Kmd.Logic.Digitalpost.CallbackSample.Controllers
             logger.LogInformation("Got response from citizen: {model}", JsonConvert.SerializeObject(model));
             var saver = new FileSaver("Download");
             saver.SaveFile($"content.{model.ContentType}", model.Content);
-            model.Attachments?.List?.ForEach(x => saver.SaveFile(x.Name, x.Content));
+            model.Attachments?.ForEach(x => saver.SaveFile(x.Name, x.Content));
             return Ok();
         }
     }
