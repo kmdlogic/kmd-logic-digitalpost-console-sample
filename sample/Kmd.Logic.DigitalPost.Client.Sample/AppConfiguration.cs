@@ -6,6 +6,7 @@ namespace Kmd.Logic.DigitalPost.Client.Sample
     internal class AppConfiguration
     {
         public string Title { get; set; }
+
         public string DocumentPath { get; set; }
 
         public IdentifierType? IdentifierType { get; set; }

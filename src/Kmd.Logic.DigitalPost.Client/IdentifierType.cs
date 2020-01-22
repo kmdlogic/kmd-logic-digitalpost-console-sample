@@ -5,7 +5,7 @@ using System.Text;
 namespace Kmd.Logic.DigitalPost.Client
 {
     /// <summary>
-    /// Type of the identifier
+    /// The type of the identifier.
     /// </summary>
     public enum IdentifierType
     {
