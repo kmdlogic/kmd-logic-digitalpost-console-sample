@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Kmd.Logic.DigitalPost.Client
+{
+    /// <summary>
+    /// Type of the identifier
+    /// </summary>
+    public enum IdentifierType
+    {
+        /// <summary>
+        /// Citizen identifier
+        /// </summary>
+        Cpr = 1,
+
+        /// <summary>
+        /// Company identifier
+        /// </summary>
+        Cvr = 2,
+    }
+}

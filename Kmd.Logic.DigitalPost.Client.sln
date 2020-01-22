@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{B3A856D9-AB49-4DAB-8A53-5B4461B2735C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F6DAFB03-D211-4EEC-A7E6-0CBF99361FC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{B1DE939A-4D71-4150-B411-8BB10AE73A3B}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+		build.ps1 = build.ps1
+		build.sh = build.sh
+		CHANGES.md = CHANGES.md
+		Directory.Build.props = Directory.Build.props
+		global.json = global.json
+		LICENSE = LICENSE
+		README.md = README.md
+		setup.ps1 = setup.ps1
+		setup.sh = setup.sh
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kmd.Logic.DigitalPost.Client", "src\Kmd.Logic.DigitalPost.Client\Kmd.Logic.DigitalPost.Client.csproj", "{BB9C7A29-E9C2-49AA-ABF6-5935ECDED991}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kmd.Logic.DigitalPost.Client.Sample", "sample\Kmd.Logic.DigitalPost.Client.Sample\Kmd.Logic.DigitalPost.Client.Sample.csproj", "{7C01D1EF-9EC1-40BC-9778-60F228FBCE32}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kmd.Logic.Digitalpost.Callback.Sample", "sample\Kmd.Logic.Digitalpost.Callback.Sample\Kmd.Logic.Digitalpost.Callback.Sample.csproj", "{347E381F-7C1A-48A7-98F3-7807B0AD1A92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB9C7A29-E9C2-49AA-ABF6-5935ECDED991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB9C7A29-E9C2-49AA-ABF6-5935ECDED991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB9C7A29-E9C2-49AA-ABF6-5935ECDED991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB9C7A29-E9C2-49AA-ABF6-5935ECDED991}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C01D1EF-9EC1-40BC-9778-60F228FBCE32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C01D1EF-9EC1-40BC-9778-60F228FBCE32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C01D1EF-9EC1-40BC-9778-60F228FBCE32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C01D1EF-9EC1-40BC-9778-60F228FBCE32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{347E381F-7C1A-48A7-98F3-7807B0AD1A92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{347E381F-7C1A-48A7-98F3-7807B0AD1A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{347E381F-7C1A-48A7-98F3-7807B0AD1A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{347E381F-7C1A-48A7-98F3-7807B0AD1A92}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BB9C7A29-E9C2-49AA-ABF6-5935ECDED991} = {F6DAFB03-D211-4EEC-A7E6-0CBF99361FC4}
+		{7C01D1EF-9EC1-40BC-9778-60F228FBCE32} = {B3A856D9-AB49-4DAB-8A53-5B4461B2735C}
+		{347E381F-7C1A-48A7-98F3-7807B0AD1A92} = {B3A856D9-AB49-4DAB-8A53-5B4461B2735C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9CC79F7D-6B66-467E-B4C9-939A7D88E2BA}
+	EndGlobalSection
+EndGlobal

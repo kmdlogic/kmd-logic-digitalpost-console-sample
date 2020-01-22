@@ -1,1 +1,0 @@
-﻿autorest --input-file=swagger.json --csharp --output-folder=Client --override-client-name=DigitalPostClient --namespace=Kmd.Logic.Digitalpost.ConsoleSample.Client --clear-output-folder --add-credentials
