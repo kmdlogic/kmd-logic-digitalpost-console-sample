@@ -16,6 +16,7 @@ namespace Kmd.Logic.DigitalPost.Client.Sample
         {
             if (string.IsNullOrWhiteSpace(this.configuration.TokenProvider?.ClientId)
                 || string.IsNullOrWhiteSpace(this.configuration.TokenProvider?.ClientSecret)
+                || string.IsNullOrWhiteSpace(this.configuration.TokenProvider?.AuthorizationScope)
                 || string.IsNullOrWhiteSpace(this.configuration.Title)
                 || string.IsNullOrWhiteSpace(this.configuration.DocumentPath)
                 || string.IsNullOrWhiteSpace(this.configuration.Identifier)

@@ -29,7 +29,8 @@ Perhaps the easiest way to configure the Digital Post client is from Application
 {
   "TokenProvider": {
     "ClientId": "",
-    "ClientSecret": ""
+    "ClientSecret": "",
+    "AuthorizationScope": ""
   },
   "Digital Post": {
     "SubscriptionId": "",
@@ -41,7 +42,7 @@ Perhaps the easiest way to configure the Digital Post client is from Application
 To get started:
 
 1. Create a subscription in [Logic Console](https://console.kmdlogic.io). This will provide you the `SubscriptionId`.
-2. Request a client credential. Once issued you can view the `ClientId` and `ClientSecret` in [Logic Console](https://console.kmdlogic.io).
+2. Request a client credential. Once issued you can view the `ClientId`, `ClientSecret` and `AuthorizationScope` in [Logic Console](https://console.kmdlogic.io).
 3. Create a digital post configuration. This will give you the `ConfigurationId`.
 
 ## Sample application
@@ -52,22 +53,20 @@ When run this you should see the message id for the transmission printed to the 
 
 ## Callback sample
 
-When configuring your digital post configuration you can optionally specify a callback URL. 
-This allows you to be notified when a citizen or company interacts with your message. 
-Most importantly, this is how you make use of the inbuilt Digital Post consent feature.
-To enable consent you must arrange with the underlying provider for a `MaterialID` to be configured with this option. 
-NOTE: There is a cost associated with this capability.
+When configuring your digital post configuration you can optionally specify a callback URL. This allows you to be notified when a citizen or company interacts with your message. 
+
+Most importantly, this is how you make use of the inbuilt digital post consent feature. To enable consent you must arrange with the underlying provider for a `MaterialID` to be configured with this option. NOTE: There is a cost associated with this capability.
 
 ## Doc2Mail Provider
 
-Doc2Mail is an e-Boks provider which can be used in any scenario. Please contact [Charlie Tango](mailto:e-boks@charlietango.dk) or call [25 10 43 01](tel:+4525104301) to arrange your credentials. There is a cost to use this service.
+Doc2Mail is a provider which can be used in by any system. Please contact [Charlie Tango](mailto:e-boks@charlietango.dk) or call [25 10 43 01](tel:+4525104301) to arrange your credentials. There is a cost to use this service.
 
 ## e-Boks Provider
 
-The e-Boks platform may be accessed directly by approved Government agencies. This can be arranged through Nets.
+The e-Boks platform may be used directly by approved government agencies. Access can be arranged by contacting Nets.
 
 ## Digital Post Fake Provider
 
 The Fake Provider is a simple solution for use in Demo or Test environments and also allows you to begin development immediately whilst you wait for your formal credentials.
 
-The fake provider accepts any message sent and always returns a successful response. No callbacks are executed with the fake provider.
+The fake provider accepts any message sent and always returns a successful response.
