@@ -84,9 +84,9 @@ namespace Kmd.Logic.Digitalpost.CallbackSample.Models
         public List<Attachment> Attachments { get; } = new List<Attachment>();
 
         /// <summary>
-        /// Gets or sets whether the sending authority allows this message to be responded to.
+        /// Gets or sets a value indicating whether the sending authority allows this message to be responded to.
         /// </summary>
-        public string CanBeResponded { get; set; }
+        public bool CanBeResponded { get; set; }
 
         /// <summary>
         /// Gets or sets the logic subscription identifier.
